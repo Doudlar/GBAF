@@ -27,7 +27,7 @@
 			les axes de la réglementation financière française. Sa mission est de promouvoir
 			l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des
 			pouvoirs publics.</p>
-			<img src='ressources/illustration_accueil.jpg' titre='faciliter vos recherches' alt='recherche d"informations bancaires' />
+			<div id='illustration'></div>
 		</section>
 		<section id='acteurs'>
 			<h2>Les acteurs et partenaires de la GBAF</h2>
@@ -35,15 +35,15 @@
 				renseigner au mieux les clients, les salariés des 340 agences des banques et
 				assurances en France (agents, chargés de clientèle, conseillers financiers, etc.)
 				recherchent sur Internet des informations portant sur des produits bancaires et
-				des financeurs, entre autres.<br/>
-				Aujourd’hui, il n’existe pas de base de données pour chercher ces informations de
+				des financeurs, entre autres.</p>
+			<p>Aujourd’hui, il n’existe pas de base de données pour chercher ces informations de
 				manière fiable et rapide ou pour donner son avis sur les partenaires et acteurs du
 				secteur bancaire, tels que les associations ou les financeurs solidaires.
 				Pour remédier à cela, le GBAF souhaite proposer aux salariés des grands groupes
 				français un point d’entrée unique, répertoriant un grand nombre d’informations
 				sur les partenaires et acteurs du groupe ainsi que sur les produits et services
-				bancaires et financiers.<br/>
-				Chaque salarié pourra ainsi poster un commentaire et donner son avis.</p>
+				bancaires et financiers.</p>
+			<p>Chaque salarié pourra ainsi poster un commentaire et donner son avis.</p>
 			<div id='cadre_acteurs'>
 				<?php echo '<article><img src="ressources/cde.png" /><div class="texte_acteur"><h3>CDE</h3><p>La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation.<br/> 
 					Site internet:<a href="https://www.chambredesentrepreneurs.com/" target=blank>https://www.chambredesentrepreneurs.com</a></p></div><div class="lien_acteur"><a href="acteur.php">Lire la suite</a></div></article>';

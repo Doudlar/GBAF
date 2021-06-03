@@ -8,13 +8,19 @@
 	<body>
 		<div id='background'>
 		<?php include("header.php");?>
-		<section id='compte'><h2>Informations du compte</h2>
-			<form method="post" action="compte.php">
+		<section id='connexion'><h2>Se connecter</h2>
+			<form method="post" action="connexion.php">
+				<label for='email'>Username (adresse email)</label><input type="email" name="email" id='email' />
+    			<label for='password'>Mot de passe: </label><input type="password" name="password" id='password' />
+				<input type="submit" value="Valider" />
+			</form>
+		</section>
+		<section id='inscription'><h2>S'inscrire</h2>
+			<form method="post" action="inscription.php">
 				<label for='email'>Username (adresse email)</label><input type="email" name="email" id='email' />
 				<label for='nom'>Nom</label><input type="text" name="nom" id='nom' />
 				<label for='prenom'>Prénom</label><input type="text" name="prenom" id='prenom' />
-				<label for='current_password'>Mot de passe actuel: </label><input type="password" name="current_password" id='current_password'/>
-    			<label for='password'>Nouveau mot de passe: </label><input type="password" name="password" id='password'/>
+    			<label for='password'>Mot de passe: </label><input type="password" name="password" id='password'/>
     			<label for='password2'>Confirmation du mot de passe: </label><input type="password" name="password2" id='password2'/>
     			<label for='question_secrete'>Question secrète</label><select name="question_secrete" id='question_secrete'>
 					<option>Quelle est votre ville de naissance?</option>
@@ -25,3 +31,9 @@
     			<label for='reponse_secrete'>Réponse à la question secrète</label><input type="text" name="reponse_secrete" id='reponse_secrete'/>
 				<input type="submit" value="Valider" />
 			</form>
+		</section>
+
+		<?php include("footer.php");?>
+		</div>
+	</body>
+</html>

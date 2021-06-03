@@ -1,12 +1,19 @@
+@font-face{
+	font-family: "Odin-Bold";
+	src:url(Odin-Bold.eot);
+	src:url(Odin-Bold.woff) format('woff'),
+		url(Odin-Bold.svg) format('svg');
+}
 body {
 	background-color: grey;
+	font-family: 'Odin-bold', Arial, serif ;
 }
 #background {
 	width: 50%;
 	height: 100%;
 	margin: auto;
 	background-color: white;
-	border: 2px dashed lightgrey;
+	border: 2px inset lightgrey;
 	padding: 20px 20px 20px 20px;
 }
 a {
@@ -24,12 +31,12 @@ header {
 	display: flex;
 	justify-content: space-between;
 	border-bottom-style: solid;
-	border-color: lightgrey;	
+	border-color: grey;	
 }
 footer {
 	text-align: center;
 	border-top-style: solid;
-	border-color: lightgrey;
+	border-color: grey;
 	margin-top: 20px;
 	text-decoration: none;
 }
@@ -43,25 +50,35 @@ footer p{
 }
 #user {
 	display: flex;
+	justify-content: space-between;
 	align-self: center;
 }
 #user img {
 	height: 30px;
 	object-fit: cover;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#logout {
+	padding-top: 8px;
 }
 #user a {
 	align-self: center;
 }
+#deconnexion a {
+	align-self: baseline;
+}
 h1, h2 {
 	color: red;
+	text-decoration: underline;
 }
-#presentation img {
-	height: 300px;
-	object-fit: contain;
-	display: block;
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
+#illustration {
+	height: 200px;
+	width: 100%;
+	background-image: url("ressources/illustration_accueil.jpg");
+	background-size: cover;
+	background-position: center;
+	opacity: 90%;
 }
 #cadre_acteurs {
 	padding: 10px 10px 10px 10px;
@@ -126,4 +143,49 @@ article {
 	border: 2px solid black;
 	border-radius: 10px;
 	padding: 5px;
+}
+.texte_acteur p {
+	width: 500px;
+}
+
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+label,
+input {
+  /* In order to define widths */
+  display: inline-block;
+}
+
+label {
+  width: 30%;
+  /* Positions the label text beside the input */
+  text-align: right;
+}
+
+label+input {
+  width: 30%;
+  /* Large margin-right to force the next element to the new-line
+           and margin-left to create a gutter between the label and input */
+  margin: 0 30% 0 4%;
+}
+label,
+textarea {
+  /* In order to define widths */
+  display: inline-block;
+}
+label+textarea {
+  width: 30%;
+  /* Large margin-right to force the next element to the new-line
+           and margin-left to create a gutter between the label and input */
+  margin: 0 30% 0 4%;
+}
+
+/* Only the submit button is matched by this selector,
+       but to be sure you could use an id or class for that button */
+
+textarea+input {
+  float: right;
 }
