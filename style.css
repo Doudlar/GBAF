@@ -1,15 +1,17 @@
 @font-face{
 	font-family: "Odin-Bold";
-	src:url(Odin-Bold.eot);
-	src:url(Odin-Bold.woff) format('woff'),
-		url(Odin-Bold.svg) format('svg');
+	src:url(fonts/Odin-Bold.eot);
+	src:url(fonts/Odin-Bold.woff) format('woff'),
+		url(fonts/Odin-Bold.svg) format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 body {
 	background-color: grey;
-	font-family: 'Odin-bold', Arial, serif ;
+	font-family: Arial, serif ;
 }
 #background {
-	width: 50%;
+	width: 70%;
 	height: 100%;
 	margin: auto;
 	background-color: white;
@@ -27,11 +29,11 @@ p {
 	text-align: justify;
 }
 header {
-	height: 150px;
 	display: flex;
 	justify-content: space-between;
 	border-bottom-style: solid;
 	border-color: grey;	
+}
 }
 footer {
 	text-align: center;
@@ -69,9 +71,15 @@ footer p{
 	align-self: baseline;
 }
 h1, h2 {
+	font-family: 'Odin-Bold', Arial, Serif;
 	color: red;
-	text-decoration: underline;
+	text-decoration: underline solid black;
 }
+h3 {
+	color: black;
+	text-decoration: underline solid red;
+}
+
 #illustration {
 	height: 200px;
 	width: 100%;
@@ -83,26 +91,44 @@ h1, h2 {
 #cadre_acteurs {
 	padding: 10px 10px 10px 10px;
 	border: 2px solid black;
+	background-color: grey;
 }
 #cadre_acteurs img {
 	height: 50px;
 	width: 100px;
 	object-fit: contain;
 	align-self: center;
-
+	margin-left: 5px;
+	margin-right: 15px;
 }
 article {
 	display: flex;
+	justify-content: space-between;
 	border: 2px solid black;
 	padding: 15px 15px 15px 15px  ;
 	margin-top: 10px;
-	align-self: ;
+	background-color: white ;
+	word-wrap: break-word;
+}
+.texte_acteur {
+ flex-grow: 3;
+ margin-right: 10px;
+}
+.texte_acteur a, #acteur a {
+	text-decoration:  underline double red;
 }
 .lien_acteur {
 	align-self: flex-end;
 	border: 2px solid black;
 	border-radius: 10px;
-	padding: 2px;
+	padding: 5px;
+	background-color: grey;
+}
+.lien_acteur a {
+	color: white;
+}
+.lien_acteur a:hover {
+	color: red;
 }
 #presentation_acteur img {
 	height: 200px;
@@ -127,7 +153,7 @@ article {
 #commentaires {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 #cadre_commentaire {
 	border: 2px solid black;
@@ -136,17 +162,35 @@ article {
 }
 .detail_commentaire {
 	border: 2px solid black;
-	padding: 5px;
+	padding: 10px;
 	margin: 10px;
+	background-color: grey;
+	color: white;
+	border-radius: 10px;
 }
 #nouveau_commentaire, #like {
 	border: 2px solid black;
 	border-radius: 10px;
-	padding: 5px;
+	padding: 10px;
+	height: 30px;
 }
-.texte_acteur p {
-	width: 500px;
+#nouveau_commentaire {
+ 	align-self: center;
+ 	te
 }
+#commentaires p {
+	margin-left: 10px;
+	font-size: 	20px;
+}
+#like {
+	margin-left: 20px;
+	margin-right: 10px;
+}
+#com_et_like {
+	display: 	flex;
+	justify-content: 	space-around	;
+}
+
 
 form {
   width: 80%;
@@ -188,4 +232,32 @@ label+textarea {
 
 textarea+input {
   float: right;
+}
+@media all and (max-width: 959px)
+{
+	#acteurs>p, #presentation>p{
+		text-align: center;
+	}
+	#background {
+	width: 80%;
+	}
+}
+
+@media all and (max-width: 479px)
+{
+	#acteurs>p, #presentation>p{
+		text-align: center;
+	}
+	article {
+		flex-direction: column;
+	}
+	header {
+		flex-direction: column;
+	}
+	header a {
+		align-self: center;
+	}
+	#background {
+	width: 90%;
+	}
 }

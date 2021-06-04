@@ -20,8 +20,8 @@
 
 		<div id='cadre_commentaire'>
 		<div id='commentaires'>
-			<p> X Commentaires</p><div id='nouveau_commentaire'><p><a href="commentaire.php">Nouveau commentaire</a></p></div>
-			<div id ="like"><a href="like.php"><?php echo "5" ?><img src='ressources/rating.png' /></a></div>
+			<p> X commentaires</p><div id="com_et_like"><div id='nouveau_commentaire'><a href="commentaire.php">Nouveau commentaire</a></div>
+			<div id ="like"><a href="like.php"><?php echo "5 " ?><img src='ressources/rating.png' /></a></div></div>
 		</div>
 			<?php echo "<div class='detail_commentaire'><p>Edouard</p><p>27/05/2021</p><p>Texte du commentaire</p></div>" ?>
 		</div>
