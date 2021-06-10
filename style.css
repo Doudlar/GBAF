@@ -6,13 +6,18 @@
 	font-weight: normal;
 	font-style: normal;
 }
+html,body {
+	height: 100%;
+	min-height: 100%;
+}
 body {
+
 	background-color: grey;
 	font-family: Arial, serif ;
+	margin: 0px;
 }
 #background {
 	width: 70%;
-	height: 100%;
 	margin: auto;
 	background-color: white;
 	border: 2px inset lightgrey;
@@ -34,6 +39,8 @@ header {
 	border-bottom-style: solid;
 	border-color: grey;	
 }
+#header_home {
+	justify-content: center;
 }
 footer {
 	text-align: center;
@@ -92,6 +99,7 @@ h3 {
 	padding: 10px 10px 10px 10px;
 	border: 2px solid black;
 	background-color: grey;
+	min-height:300px;
 }
 #cadre_acteurs img {
 	height: 50px;
@@ -196,6 +204,9 @@ form {
   width: 80%;
   margin: 0 auto;
 }
+input {
+	margin: 5px 5px 5px 5px;
+}
 
 label,
 input {
@@ -209,30 +220,21 @@ label {
   text-align: right;
 }
 
-label+input {
+label+input, label+select, label+textarea {
   width: 30%;
   /* Large margin-right to force the next element to the new-line
            and margin-left to create a gutter between the label and input */
   margin: 0 30% 0 4%;
 }
 label,
-textarea {
+textarea,select {
   /* In order to define widths */
   display: inline-block;
 }
-label+textarea {
-  width: 30%;
-  /* Large margin-right to force the next element to the new-line
-           and margin-left to create a gutter between the label and input */
-  margin: 0 30% 0 4%;
-}
 
-/* Only the submit button is matched by this selector,
-       but to be sure you could use an id or class for that button */
+/*Pour positionner le bouton valider à droite */
 
-textarea+input {
-  float: right;
-}
+/*Media queries pour le responsive design avec 2 break points à 960 px (tablette) et 480px (smartphone) */
 @media all and (max-width: 959px)
 {
 	#acteurs>p, #presentation>p{

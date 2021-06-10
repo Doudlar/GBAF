@@ -2,9 +2,31 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<title>Site de la GBAF, pour une meilleure collaboration au sein du système bancaire</title>
 	</head>
+	<?php 
+		session_start(); 
+		// Vérification de la validité des informations
+		try
+			{
+				$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+				
+			}
+		catch (Exception $e)
+			{
+		        die('Erreur : ' . $e->getMessage());
+			}
+		if(isset ($_SESSION["username"]))
+		{
+			goto a;	
+		}
+		else 
+		{
+			header('location:home.php');
+		} 
+	a: ?>;
 	<body>
 		<div id='background'>
 		<?php include("header.php");?>
@@ -45,10 +67,16 @@
 				bancaires et financiers.</p>
 			<p>Chaque salarié pourra ainsi poster un commentaire et donner son avis.</p>
 			<div id='cadre_acteurs'>
-				<?php echo '<article><img src="ressources/cde.png" /><div class="texte_acteur"><h3>CDE</h3><p>La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation.<br/> 
-					Site internet:<a href="https://www.chambredesentrepreneurs.com/" target=blank>https://www.chambredesentrepreneurs.com</a></p></div><div class="lien_acteur"><a href="acteur.php">Lire la suite</a></div></article>';
-					echo '<article><img src="ressources/Dsa_france.png" /><div class="texte_acteur"><h3>DSA France</h3><p>Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales.<br/>
-					Site internet:<a href="https://www.dsa.fr" target=blank>https://www.dsa.fr</a></p></div><div class="lien_acteur"><a href="acteur.php">Lire la suite</a></div></article>'; ?>
+				<?php 
+					$req = $bdd->query('SELECT id_acteur,acteur,description,logo FROM acteur ORDER BY id_acteur ASC');
+
+					while ($donnees=$req->fetch())			
+						{
+							echo "<article><img src='" .$donnees['logo'] ."' /><div class='texte_acteur'><h3>" . $donnees['acteur']."</h3><p>".$donnees['description']."
+					Site internet:<a href='https://www.chambredesentrepreneurs.com/' target=blank>https://www.chambredesentrepreneurs.com</a></p></div><div class='lien_acteur'><a href='acteur.php'>Lire la suite</a></div></article>";
+						}
+					$req->closeCursor();
+					?>
 			</div>
 
 		<?php include("footer.php");?>

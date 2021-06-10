@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<title>Site de la GBAF, pour une meilleure collaboration au sein du système bancaire</title>
 	</head>
