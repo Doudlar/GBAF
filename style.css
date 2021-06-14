@@ -139,8 +139,8 @@ article {
 	color: red;
 }
 #presentation_acteur img {
-	height: 200px;
-	width: 300px;
+	max-height: 400px;
+	max-width: 600px;
 	object-fit: contain;
 	align-self: center;
 }
@@ -213,7 +213,14 @@ input {
   /* In order to define widths */
   display: inline-block;
 }
-
+input,textarea,select {
+	background-color: grey;
+	color: white;
+	cursor: pointer;
+	caret-color: white;
+	border: 1px;
+	border-radius: 5px;
+}
 label {
   width: 30%;
   /* Positions the label text beside the input */

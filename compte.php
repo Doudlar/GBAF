@@ -10,6 +10,7 @@
 	<body>
 		<div id='background'>
 		<?php 
+		session_start(); 
 		include("header.php");	
 		try
 			{

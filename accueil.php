@@ -73,7 +73,7 @@
 					while ($donnees=$req->fetch())			
 						{
 							echo "<article><img src='" .$donnees['logo'] ."' /><div class='texte_acteur'><h3>" . $donnees['acteur']."</h3><p>".$donnees['description']."
-					Site internet:<a href='https://www.chambredesentrepreneurs.com/' target=blank>https://www.chambredesentrepreneurs.com</a></p></div><div class='lien_acteur'><a href='acteur.php'>Lire la suite</a></div></article>";
+					Site internet:<a href='https://www.chambredesentrepreneurs.com/' target=blank>https://www.chambredesentrepreneurs.com</a></p></div><div class='lien_acteur'><a href='acteur.php?id_acteur=".$donnees['id_acteur']."''>Lire la suite</a></div></article>";
 						}
 					$req->closeCursor();
 					?>

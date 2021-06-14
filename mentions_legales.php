@@ -8,8 +8,19 @@
 	</head>
 	<body>
 		<div id='background'>
-		
-		<?php include("header.php");?>
+		<?php 
+				session_start(); 
+				// Vérification de la validité des informations
+				try
+					{
+						$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+						
+					}
+				catch (Exception $e)
+					{
+				        die('Erreur : ' . $e->getMessage());
+					}
+		include("header.php");?>
 		<h1>Mentions légales</h1>
 		<h2>Identité</h2>
 <p>
