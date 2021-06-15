@@ -27,7 +27,7 @@
     			<p><label for='nom'>Nom</label><input type="text" name="nom" id='nom' /></p>
 				<p><label for='prenom'>Prénom</label><input type="text" name="prenom" id='prenom' /></p>
 				<p><label for='message'></label><textarea name="message" id="message" rows="10"cols="30">Saisissez votre message ici</textarea></p>
-				<p><input type="submit" value="Envoyer" /></p>
+				<p class='valider'><input type="submit" value="Envoyer" /></p>
 			</form>
 		</section>
 

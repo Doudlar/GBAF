@@ -72,9 +72,7 @@ ainsi que toute présentation tendancieuse, ou contraire aux lois en vigueur.
 Le propriétaire du site se réserve le droit de demander la suppression d’un lien s’il estime que le site source ne respecte pas les règles ainsi définies.
 </p>
 <h2>Confidentialité</h2>
-<p>Tout utilisateur dispose d’un droit d’accès, de rectification et d’opposition aux données personnelles le concernant, en effectuant sa demande écrite et signée, accompagnée d’une preuve d’identité. 5678
-
-Le site ne recueille pas d’informations personnelles, et n’est pas assujetti à déclaration à la CNIL. 9
+<p>Tout utilisateur dispose d’un droit d’accès, de rectification et d’opposition aux données personnelles le concernant, en effectuant sa demande écrite et signée, accompagnée d’une preuve d’identité.
 </p>
 
 Mentions légales fournies par WebExpress – Version 1.5 – Utilisation libre sous Licence Creative Commons CC BY-NC-ND 3.0 FR / creativecommons.org.
