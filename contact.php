@@ -20,7 +20,10 @@
 					{
 				        die('Erreur : ' . $e->getMessage());
 					}
+
+		
 		include("header.php");?>
+		
 		<section id='contact'><h2>Nous contacter</h2>
 			<form method="post" action="contact.php">
 				<p><label for='email'>Adresse email</label><input type="email" name="email" id='email' /></p>
@@ -30,8 +33,22 @@
 				<p class='valider'><input type="submit" value="Envoyer" /></p>
 			</form>
 		</section>
+		<?php
+		if (isset($_POST['email']) and isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['message'])) {
+			    ini_set ('smtp','smtp.gmail.com');
+			    ini_set('smtp_port','465');
+			    ini_set( 'display_errors', 1 );
+			    error_reporting( E_ALL );
+			    $from = "edouardj.fournier@gmail.com";
+			    $to = "edouardj.fournier@gmail.com";
+			    $subject = "Demande de contact GBAF";
+			    $message = "Nom : ". $_POST['nom']." Prénom : ".$_POST['prenom']." Email : ".$_POST['email']." Message : ".$_POST['message'];
+			    $headers = "De :" . $_POST['email'];
+			    mail($to,$subject,$message, $headers);
+			    echo "L'email a été envoyé.";
+		}
 
-		<?php include("footer.php");?>
+		include("footer.php");?>
 		</div>
 	</body>
 </html>

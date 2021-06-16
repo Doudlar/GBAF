@@ -6,6 +6,7 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
 html,body {
 	height: 100%;
 	min-height: 100%;
@@ -16,13 +17,7 @@ body {
 	font-family: Arial, serif ;
 	margin: 0px;
 }
-#background {
-	width: 70%;
-	margin: auto;
-	background-color: white;
-	border: 2px inset lightgrey;
-	padding: 20px 20px 20px 20px;
-}
+
 a {
 	text-decoration:none; 
 	color: black;
@@ -39,9 +34,6 @@ header {
 	border-bottom-style: solid;
 	border-color: grey;	
 }
-#header_home {
-	justify-content: center;
-}
 footer {
 	text-align: center;
 	border-top-style: solid;
@@ -52,35 +44,11 @@ footer {
 footer p{
 	text-align: center;
 }
-
-#logo {
-	height: 150px;
-	object-fit: cover;
-}
-#user {
-	display: flex;
-	justify-content: space-between;
-	align-self: center;
-}
-#user img {
-	height: 30px;
-	object-fit: cover;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-#logout {
-	padding-top: 8px;
-}
-#user a {
-	align-self: center;
-}
-#deconnexion a {
-	align-self: baseline;
-}
 h1, h2 {
 	font-family: 'Odin-Bold', Arial, Serif;
 	color: red;
 	text-decoration: underline solid black;
+	text-transform: uppercase;
 }
 h3 {
 	color: black;
@@ -117,6 +85,11 @@ input,textarea,select {
 	border: 1px;
 	border-radius: 5px;
 	padding: 5px;
+	-ms-box-sizing:content-box;
+-moz-box-sizing:content-box;
+-webkit-box-sizing:content-box; 
+box-sizing:content-box;
+
 }
 label {
   width: 30%;
@@ -135,6 +108,44 @@ textarea,select {
   /* In order to define widths */
   display: inline-block;
 }
+#background {
+	width: 70%;
+	margin: auto;
+	background-color: white;
+	border: 2px inset lightgrey;
+	padding: 0px 20px 0px 20px;
+}
+#header_home {
+	justify-content: center;
+}
+.home {
+	text-align: center;
+}
+#logo {
+	height: 150px;
+	object-fit: cover;
+}
+#user {
+	display: flex;
+	justify-content: space-between;
+	align-self: center;
+}
+#user img {
+	height: 30px;
+	object-fit: cover;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#logout {
+	padding-top: 8px;
+}
+#user a {
+	align-self: center;
+}
+#deconnexion a {
+	align-self: baseline;
+}
+
 #illustration {
 	height: 200px;
 	width: 100%;
@@ -151,7 +162,7 @@ textarea,select {
 }
 #cadre_acteurs img {
 	height: 50px;
-	width: 100px;
+	max-width: 100px;
 	object-fit: contain;
 	align-self: center;
 	margin-left: 5px;
@@ -169,8 +180,9 @@ article {
 .texte_acteur {
  flex-grow: 3;
  margin-right: 10px;
+ width: 100%;
 }
-.texte_acteur a, #acteur a, #register {
+.texte_acteur a, #acteur a, #register, #reset, #register {
 	text-decoration:  underline double red;
 }
 .lien_acteur {
@@ -188,9 +200,10 @@ article {
 }
 #presentation_acteur img {
 	max-height: 400px;
-	max-width: 600px;
+	max-width: 60%;
 	object-fit: contain;
 	align-self: center;
+	border-radius: 5px;
 }
 #presentation_acteur {
 	display: flex;
@@ -232,7 +245,6 @@ article {
 }
 #nouveau_commentaire {
  	align-self: center;
- 	te
 }
 #commentaires p {
 	margin-left: 10px;
@@ -241,6 +253,7 @@ article {
 #like {
 	margin-left: 20px;
 	margin-right: 10px;
+	padding-bottom: 10px;
 }
 #like a, #like p, #like form {
 	margin-right: 10px;
@@ -258,6 +271,8 @@ article {
 #vote {
 	border: solid grey 2px;
 	border-radius: 10px;
+	padding-bottom: 0;
+	height: 35px;
 }
 #com_et_like {
 	display: 	flex;
@@ -265,7 +280,18 @@ article {
 }
 
 #ajout_com textarea {
-	width 70%;
+	margin-top: 20px;
+	margin-right: auto;
+	width: 70%;
+
+}
+#ajout_com {
+	margin-left: 20px;
+	padding: 0;
+	display: none;
+}
+#ajout_com input {
+	margin: 0;
 }
 
 /*Pour positionner le bouton valider à droite */
@@ -278,7 +304,11 @@ article {
 	padding: 10px;
 	font-size: 15px;
 }
-
+.erreur{
+	color: red;
+	text-align: center;
+	font-weight: bold;
+}
 /*Media queries pour le responsive design avec 2 break points à 960 px (tablette) et 480px (smartphone) */
 @media all and (max-width: 959px)
 {
@@ -288,12 +318,22 @@ article {
 	#background {
 	width: 80%;
 	}
+	label, label+input, label+select, label+textarea {
+  width: 100%;
+  margin: auto;
+	}
+	label {
+		text-align: center;
+	}
 }
-
 @media all and (max-width: 479px)
 {
 	#acteurs>p, #presentation>p{
 		text-align: center;
+	}
+	#cadre_acteurs img {
+		height: 100px;
+		max-width: 80%;
 	}
 	article {
 		flex-direction: column;
@@ -305,6 +345,14 @@ article {
 		align-self: center;
 	}
 	#background {
-	width: 90%;
+	width: 100%;
+	padding:  0;
+	}
+	label,label+input, label+select, label+textarea {
+  width: 100%;
+  margin: auto;
+	}
+	label {
+		text-align: center;
 	}
 }

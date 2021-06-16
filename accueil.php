@@ -8,7 +8,7 @@
 	</head>
 	<?php 
 		session_start(); 
-		// Vérification de la validité des informations
+		/* Test de la connexion à la BDD*/
 		try
 			{
 				$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -18,6 +18,7 @@
 			{
 		        die('Erreur : ' . $e->getMessage());
 			}
+		/*Vérification de l'existence d'une session sinon renvoi vers la page de connexion.*/
 		if(isset ($_SESSION["username"]))
 		{
 			goto a;	
@@ -26,10 +27,11 @@
 		{
 			header('location:home.php');
 		} 
-	a: ?>;
+	a: ?>
 	<body>
 		<div id='background'>
 		<?php include("header.php");?>
+		<!-- 2 sections de présentation, une pour la présentation de la GBAF et une seconde pour afficher l'ensemble des acteurs. -->
 		<section id='presentation'> 
 			<h1>Présentation du Groupement Banque-Assurance Français (GBAF)</h1>
 			<p>Le Groupement Banque Assurance Français (GBAF) est une fédération
@@ -68,12 +70,12 @@
 			<p>Chaque salarié pourra ainsi poster un commentaire et donner son avis.</p>
 			<div id='cadre_acteurs'>
 				<?php 
-					$req = $bdd->query('SELECT id_acteur,acteur,description,logo FROM acteur ORDER BY id_acteur ASC');
-
+					/*Requete pour récupérer l'ensemble des acteurs et leurs informations et intégration dans une balise article par acteur*/
+					$req = $bdd->query('SELECT id_acteur,acteur,LEFT(description,LOCATE("\.",description)) as premiere_phrase,logo,site FROM acteur ORDER BY id_acteur ASC');
 					while ($donnees=$req->fetch())			
 						{
-							echo "<article><img src='" .$donnees['logo'] ."' /><div class='texte_acteur'><h3>" . $donnees['acteur']."</h3><p>".$donnees['description']."
-					Site internet:<a href='https://www.chambredesentrepreneurs.com/' target=blank>https://www.chambredesentrepreneurs.com</a></p></div><div class='lien_acteur'><a href='acteur.php?id_acteur=".$donnees['id_acteur']."''>Lire la suite</a></div></article>";
+							echo "<article><img src='" .$donnees['logo'] ."' /><div class='texte_acteur'><h3>" . $donnees['acteur']."</h3><p>".$donnees['premiere_phrase']."
+					<a href='".$donnees['site']."' target=blank>Visitez leur site</a></p></div><div class='lien_acteur'><a href='acteur.php?id_acteur=".$donnees['id_acteur']."''>Lire la suite</a></div></article>";
 						}
 					$req->closeCursor();
 					?>
