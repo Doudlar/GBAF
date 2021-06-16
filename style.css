@@ -180,17 +180,19 @@ article {
 .texte_acteur {
  flex-grow: 3;
  margin-right: 10px;
- width: 100%;
+ max-width: 60%;
 }
 .texte_acteur a, #acteur a, #register, #reset, #register {
 	text-decoration:  underline double red;
 }
 .lien_acteur {
+	width: 90px;
 	align-self: flex-end;
 	border: 2px solid black;
 	border-radius: 10px;
 	padding: 5px;
 	background-color: grey;
+	text-align: center;
 }
 .lien_acteur a {
 	color: white;
@@ -318,6 +320,9 @@ article {
 	#background {
 	width: 80%;
 	}
+	#commentaires {
+		flex-direction: column;
+	}
 	label, label+input, label+select, label+textarea {
   width: 100%;
   margin: auto;
@@ -328,12 +333,32 @@ article {
 }
 @media all and (max-width: 479px)
 {
-	#acteurs>p, #presentation>p{
+	#acteurs>p, #presentation>p,#acteurs>h2, #presentation>h1{
 		text-align: center;
+		padding-left:5px; ;
+		padding-right:5px; ;
+	}
+	#commentaires>p{
+		margin-right: 10px;
+	}
+	#commentaires,#com_et_like 	{
+		flex-direction: column;
+		align-self: flex-start;
+	}
+	#nouveau_commentaire, #like { 	
+		margin-bottom: 10px;
+		margin-left: 10px;
+	}
+	#like {
+		align-self: flex-start;
+		padding-left: 0;	
 	}
 	#cadre_acteurs img {
 		height: 100px;
 		max-width: 80%;
+	}
+	.texte_acteur {
+		max-width: 90%;
 	}
 	article {
 		flex-direction: column;
@@ -345,8 +370,9 @@ article {
 		align-self: center;
 	}
 	#background {
-	width: 100%;
-	padding:  0;
+	width: 99%;
+	margin: 0;
+	padding: 0;
 	}
 	label,label+input, label+select, label+textarea {
   width: 100%;

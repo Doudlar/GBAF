@@ -9,18 +9,28 @@
 	<body>
 		<div id='background'>
 		<?php 
-				session_start(); 
-				// Vérification de la validité des informations
-				try
-					{
-						$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-						
-					}
-				catch (Exception $e)
-					{
-				        die('Erreur : ' . $e->getMessage());
-					}
-		include("header.php");?>
+		session_start(); 
+		// Vérification de la validité des informations
+		try
+			{
+				$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+				
+			}
+		catch (Exception $e)
+			{
+		        die('Erreur : ' . $e->getMessage());
+			}
+		//Affichage du header personnalisé si session ouverte sinon header logo uniquement	
+		if(isset($_SESSION['username'])) {
+				include("header.php");
+			}
+			else 
+			{
+				echo "<header id='header_home'>
+				<a href='accueil.php'><img src='ressources/LOGO_GBAF_ROUGE.png' titre='logo GBAF' alt='Logo de la GBAF' id='logo'/></a>
+				</header>";
+			} ?>
+		
 		<h1>Mentions légales</h1>
 		<h2>Identité</h2>
 <p>

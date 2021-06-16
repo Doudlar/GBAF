@@ -9,22 +9,30 @@
 	<body>
 		<div id='background'>
 		<?php 
-				session_start(); 
-				// Vérification de la validité des informations
-				try
-					{
-						$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-						
-					}
-				catch (Exception $e)
-					{
-				        die('Erreur : ' . $e->getMessage());
-					}
-
+		session_start(); 
+		// Vérification de la validité des informations
+		try
+			{
+				$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+				
+			}
+		catch (Exception $e)
+			{
+		        die('Erreur : ' . $e->getMessage());
+			}
+		//Affichage du header personnalisé si session ouverte sinon header logo uniquement	
+		if(isset($_SESSION['username'])) {
+			include("header.php");
+		}
+		else 
+		{
+			echo "<header id='header_home'>
+			<a href='accueil.php'><img src='ressources/LOGO_GBAF_ROUGE.png' titre='logo GBAF' alt='Logo de la GBAF' id='logo'/></a>
+			</header>";
+		} ?>
 		
-		include("header.php");?>
 		
-		<section id='contact'><h2>Nous contacter</h2>
+		<section id='contact' class='home'><h2>Nous contacter</h2>
 			<form method="post" action="contact.php">
 				<p><label for='email'>Adresse email</label><input type="email" name="email" id='email' /></p>
     			<p><label for='nom'>Nom</label><input type="text" name="nom" id='nom' /></p>

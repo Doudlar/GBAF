@@ -188,7 +188,7 @@
 			}
 				else 
 				{
-					echo "Erreur, acteur introuvable, merci de vérifier votre URL";
+					echo "<p class='erreur'>Erreur, acteur introuvable, merci de vérifier votre URL</p>";
 				}	
 			include("footer.php");?>
 				</body>

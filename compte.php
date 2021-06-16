@@ -7,20 +7,23 @@
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<title>Site de la GBAF, pour une meilleure collaboration au sein du système bancaire</title>
 	</head>
-	/*Vérification de l'existence d'une session sinon renvoi vers la page de connexion.*/
+	
 	<?php	
-		if(isset ($_SESSION["username"]))
-		{
-			goto a;	
-		}
-		else 
-		{
-			header('location:home.php');
-		} 
+	/*Vérification de l'existence d'une session sinon renvoi vers la page de connexion.*/
+	session_start();
+	if(isset ($_SESSION["username"]))
+	{
+		goto a;	
+	}
+	else 
+	{
+		header('location:home.php');
+	} 
 	a: ?>
 	<body>
 		<div id='background'>
 		<?php 
+		/* Test de la connexion à la BDD*/
 		try
 			{
 				$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -30,16 +33,13 @@
 			{
 			        die('Erreur : ' . $e->getMessage());
 			}
-		session_start();
+		
 		include("header.php");
 		
-		$username=$_SESSION["username"];
-		$req = $bdd->prepare('SELECT username,nom,prenom,password,question,reponse FROM account WHERE username=?');
-		$req->execute(array($username));
-		$donnees=$req->fetch(); 
-		
+		/*Fonction permettant d'afficher le formulaire*/
 		function formulaire($bdd)
 		{
+			//Récupération des infos de l'utilisateur en BDD pour affichage dans le formulaire
 			$username=$_SESSION["username"];
 			$req = $bdd->prepare('SELECT username,nom,prenom,password,question,reponse FROM account WHERE username=?');
 			$req->execute(array($username));
@@ -64,11 +64,14 @@
 				$req->closeCursor();
 		}
 		
+		/*Contrôle des variables password sinon affichage du formulaire simple*/
 		if (isset($_POST['mdp_actuel']) and isset($_POST['mdp']) and isset($_POST['mdp2']))  {
+				//Vérification du mot de passe actuel saisi sinon message d'erreur
 				if (password_verify($_POST['mdp_actuel'], $donnees['password'])==false) {
 					formulaire($bdd);
 					echo "<p class=erreur>Mot de passe incorrect !</p>";
 				}
+				//Vérification de la saisie du nouveau mot de passe. Si vide, MAJ des infos personnelles uniquement
 				elseif ($_POST['mdp']=='') {
 					$req = $bdd->prepare('UPDATE account SET nom=:nom, prenom=:prenom, question=:question, reponse=:reponse WHERE username=:username');
 					$req->execute(array(
@@ -80,10 +83,12 @@
 					formulaire($bdd);
 					echo "<p class=erreur>Mise à jour des informations personnelles enregistrée !</p>";
 				}
+				//Vérification de l'égalité entre les 2 mdp sinon message d'erreur
 				elseif ($_POST['mdp']<>$_POST['mdp2']) {
 					formulaire($bdd);
 					echo "<p class=erreur>Nouveau mot de passe incorrect !</p>";
 				}
+				//Si nouveau mot de passe, MAJ du mot de passe dans la BDD
 				else {
 					$pass_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 					$req = $bdd->prepare('UPDATE account SET nom=:nom, prenom=:prenom, password=:password, question=:question, reponse=:reponse WHERE username=:username');
