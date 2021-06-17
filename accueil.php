@@ -74,13 +74,14 @@
 					$req = $bdd->query('SELECT id_acteur,acteur,LEFT(description,LOCATE("\.",description)) as premiere_phrase,logo,site FROM acteur ORDER BY id_acteur ASC');
 					while ($donnees=$req->fetch())			
 						{
-							echo "<article><img src='" .$donnees['logo'] ."' /><div class='texte_acteur'><h3>" . $donnees['acteur']."</h3><p>".$donnees['premiere_phrase']."
-					<a href='".$donnees['site']."' target=blank>Visitez leur site</a></p></div><div class='lien_acteur'><a href='acteur.php?id_acteur=".$donnees['id_acteur']."''>Lire la suite</a></div></article>";
+							echo "<article><img src='" .$donnees['logo'] ."' alt='Logo ".$donnees['acteur']."' /><div class='texte_acteur'><h3>" . $donnees['acteur']."</h3><p>".$donnees['premiere_phrase']."
+					<a href='".$donnees['site']."' target=blank>Visitez leur site</a></p></div><div class='lien_acteur'><a href='acteur.php?id_acteur=".$donnees['id_acteur']."'>Lire la suite</a></div></article>";
 						}
 					$req->closeCursor();
 					?>
+		
 			</div>
-
+		</section>
 		<?php include("footer.php");?>
 		</div>
 	</body>

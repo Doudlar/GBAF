@@ -52,7 +52,7 @@
 				<p><label for='mdp_actuel'>Mot de passe actuel: </label><input type='password' name='mdp_actuel' id='mdp_actuel'/></p>
     			<p><label for='mdp'>Nouveau mot de passe: </label><input type='password' name='mdp' id='mdp'/></p>
     			<p><label for='mdp2'>Confirmation du mot de passe: </label><input type='password' name='mdp2' id='mdp2'/></p>
-    			<p><label for='question'>Question secrète:</label><select name='question' id='question'></p>
+    			<p><label for='question'>Question secrète:</label><select name='question' id='question'>
 					<option value='1' "; if ($donnees["question"]=='1'){echo "selected";} echo">Quelle est votre ville de naissance?</option>
 					<option value='2' "; if ($donnees["question"]=='2'){echo "selected";} echo">Quel est le nom de votre premier animal de compagnie?</option>
 					<option value='3' "; if ($donnees["question"]=='3'){echo "selected";} echo">Quelle est votre couleur préférée?</option>
@@ -60,11 +60,17 @@
 				</select></p>
     			<p><label for='reponse'>Réponse à la question secrète:</label><input type='text' name='reponse' id='reponse' value='". htmlspecialchars($donnees['reponse']) ."'/></p>
 				<p class='valider'><input type='submit' value='Valider'    /></p>
-				</form>";
+				</form></section>";
 				$req->closeCursor();
 		}
+
 		
 		/*Contrôle des variables password sinon affichage du formulaire simple*/
+		$username=$_SESSION["username"];
+		$req = $bdd->prepare('SELECT username,nom,prenom,password,question,reponse FROM account WHERE username=?');
+		$req->execute(array($username));
+		$donnees=$req->fetch();
+		
 		if (isset($_POST['mdp_actuel']) and isset($_POST['mdp']) and isset($_POST['mdp2']))  {
 				//Vérification du mot de passe actuel saisi sinon message d'erreur
 				if (password_verify($_POST['mdp_actuel'], $donnees['password'])==false) {
