@@ -39,7 +39,7 @@ function formulaire() {
 
 	</select></p>
 	<p><label for='reponse'>Réponse à la question secrète:</label><input type='text' name='reponse' id='reponse'/></p>
-	<p><input type='checkbox' id='checkbox' id=accord_confidentialite) required /><label for='accord_confidentialite'>J'accepte les conditions d'utilisation du site consultables <a href='politique_de_confidentialite' id='confidentialite' target=blank>ici</a></label>
+	<p><input type='checkbox' id='accord_confidentialite' required /><label for='accord_confidentialite'>J'accepte les conditions d'utilisation du site consultables <a href='politique_de_confidentialite' id='confidentialite' target=blank>ici</a></label>
 	<p class='valider'><input type='submit' value='Valider' /></p>
 	</form>";
 }
