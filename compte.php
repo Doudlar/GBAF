@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +52,7 @@
 				<p><label for='mdp_actuel'>Mot de passe actuel: </label><input type='password' name='mdp_actuel' id='mdp_actuel'/></p>
     			<p><label for='mdp'>Nouveau mot de passe: </label><input type='password' name='mdp' id='mdp'/></p>
     			<p><label for='mdp2'>Confirmation du mot de passe: </label><input type='password' name='mdp2' id='mdp2'/></p>
-    			<p><label for='question'>Question secrète:</label><select name='question' id='question' value='". htmlspecialchars($donnees['question']) ."'></p>
+    			<p><label for='question'>Question secrète:</label><select name='question' id='question'></p>
 					<option value='1' "; if ($donnees["question"]=='1'){echo "selected";} echo">Quelle est votre ville de naissance?</option>
 					<option value='2' "; if ($donnees["question"]=='2'){echo "selected";} echo">Quel est le nom de votre premier animal de compagnie?</option>
 					<option value='3' "; if ($donnees["question"]=='3'){echo "selected";} echo">Quelle est votre couleur préférée?</option>

@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 	<body>
 		<div id='background'>
 			<header id='header_home'>
-				<a href='accueil.php'><img src='ressources/LOGO_GBAF_ROUGE.png' titre='logo GBAF' alt="Logo de la GBAF" id="logo"/></a>
+				<a href='accueil.php'><img src='ressources/LOGO_GBAF_ROUGE.png' title='logo GBAF' alt="Logo de la GBAF" id="logo"/></a>
 			</header>
 			<section id='inscription' class='home'><h2>S'inscrire</h2>
 	<?php

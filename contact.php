@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
 		else 
 		{
 			echo "<header id='header_home'>
-			<a href='accueil.php'><img src='ressources/LOGO_GBAF_ROUGE.png' titre='logo GBAF' alt='Logo de la GBAF' id='logo'/></a>
+			<a href='accueil.php'><img src='ressources/LOGO_GBAF_ROUGE.png' title='logo GBAF' alt='Logo de la GBAF' id='logo'/></a>
 			</header>";
 		} ?>
 		
@@ -37,7 +37,7 @@
 				<p><label for='email'>Adresse email</label><input type="email" name="email" id='email' /></p>
     			<p><label for='nom'>Nom</label><input type="text" name="nom" id='nom' /></p>
 				<p><label for='prenom'>Prénom</label><input type="text" name="prenom" id='prenom' /></p>
-				<p><label for='message'></label><textarea name="message" id="message" rows="10"cols="30">Saisissez votre message ici</textarea></p>
+				<p><label for='message'></label><textarea name="message" id="message" rows="10" cols="30">Saisissez votre message ici</textarea></p>
 				<p class='valider'><input type="submit" value="Envoyer" /></p>
 			</form>
 		</section>

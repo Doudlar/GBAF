@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@ catch (Exception $e)
 <body>
 		<div id='background'>
 		<header id='header_home'>
-			<a href='accueil.php'><img src='ressources/LOGO_GBAF_ROUGE.png' titre='logo GBAF' alt="Logo de la GBAF" id="logo"/></a>
+			<a href='accueil.php'><img src='ressources/LOGO_GBAF_ROUGE.png' title='logo GBAF' alt="Logo de la GBAF" id="logo"/></a>
 		</header>
 		<section id='connexion' class='home'><h2>SE CONNECTER</h2>
 <?php 
@@ -71,11 +71,10 @@ catch (Exception $e)
 	
 		
 		</section>
-		<!-- Section avec lien vers réinitialisation du mot de passe ou vers l'inscription -->
-		<section >
-			<p class='home'>Vous avez oublié votre mot de passe? Réinitialisez le en suivant <a href='reset.php' id='reset'>ce lien</a>.</p>
-			<p class='home'>C'est votre première visite? Inscrivez vous en suivant <a href='register.php' id='register'>ce lien</a>.</p>
-		</section>
+		<!-- Liens vers réinitialisation du mot de passe ou vers l'inscription -->
+		<p class='home'>Vous avez oublié votre mot de passe? Réinitialisez le en suivant <a href='reset.php' id='reset'>ce lien</a>.</p>
+		<p class='home'>C'est votre première visite? Inscrivez vous en suivant <a href='register.php' id='register'>ce lien</a>.</p>
+		
 
 		<?php include("footer.php");?>
 		</div>
