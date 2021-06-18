@@ -25,20 +25,20 @@ catch (Exception $e)
         die('Erreur : ' . $e->getMessage());
 }
 /*Fonction permettant d'afficher le formulaire*/
-function formulaire() {
+function formulaire($username='',$nom='',$prenom='',$question=1,$reponse='') {
 	echo"<form method='post' action='register.php'>
-	<p><label for='username2'>Nom d'utilisateur:</label><input type='text' name='username' id='username2' /></p>
-	<p><label for='nom'>Nom:</label><input type='text' name='nom' id='nom' /></p>
-	<p><label for='prenom'>Prénom:</label><input type='text' name='prenom' id='prenom' /></p>
+	<p><label for='username2'>Nom d'utilisateur:</label><input type='text' name='username' id='username2' value='".$username."' /></p>
+	<p><label for='nom'>Nom:</label><input type='text' name='nom' id='nom' value='".$nom."'/></p>
+	<p><label for='prenom'>Prénom:</label><input type='text' name='prenom' id='prenom' value='".$prenom."' /></p>
 	<p><label for='mdp'>Mot de passe: </label><input type='password' name='mdp' id='mdp'/></p>
 	<p><label for='mdp2'>Confirmation du mot de passe: </label><input type='password' name='mdp2' id='mdp2'/></p>
 	<p><label for='question'>Question secrète:</label><select name='question' id='question'>
-		<option value='1'>Quelle est votre ville de naissance?</option>
-		<option value='2'>Quel est le nom de votre premier animal de compagnie?</option>
-		<option value='3'>Quelle est votre couleur préférée?</option>
+		<option value='1' "; if ($question=='1'){echo "selected";} echo">Quelle est votre ville de naissance?</option>
+		<option value='2' "; if ($question=='2'){echo "selected";} echo">Quel est le nom de votre premier animal de compagnie?</option>
+		<option value='3' "; if ($question=='3'){echo "selected";} echo">Quelle est votre couleur préférée?</option>
 
 	</select></p>
-	<p><label for='reponse'>Réponse à la question secrète:</label><input type='text' name='reponse' id='reponse'/></p>
+	<p><label for='reponse'>Réponse à la question secrète:</label><input type='text' name='reponse' id='reponse' value='".$reponse."'/></p>
 	<p><input type='checkbox' id='accord_confidentialite' required /><label for='accord_confidentialite'>J'accepte les conditions d'utilisation du site consultables <a href='politique_de_confidentialite' id='confidentialite' target=blank>ici</a></label>
 	<p class='valider'><input type='submit' value='Valider' /></p>
 	</form>";
@@ -67,7 +67,7 @@ if (isset($_POST["username"]) and isset($_POST["mdp"]))
 		//Vérification de l'égalité des mdp pour insertion dans la BDD sinon erreur
 		if ($mdp<>$mdp2)
 		{
-			formulaire();
+			formulaire($username,$nom,$prenom,$question,$reponse);
 			echo "<p class=erreur>Les mots de passe ne sont pas identiques</p>";
 		}
 		else

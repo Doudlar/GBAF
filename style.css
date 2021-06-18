@@ -1,3 +1,5 @@
+
+/*Ajout police personnalisée */
 @font-face{
 	font-family: "Odin-Bold";
 	src:url(fonts/Odin-Bold.eot);
@@ -7,10 +9,12 @@
 	font-style: normal;
 }
 
+/*Styles des balises standards pour l'ensemble des pages du site */
 html,body {
 	height: 100%;
 	min-height: 100%;
 }
+
 body {
 
 	background-color: grey;
@@ -22,18 +26,24 @@ a {
 	text-decoration:none; 
 	color: black;
 }
+
 a:hover {
 	color: red;
 }
+
 p {
 	text-align: justify;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
+	font-family: 'Odin-Bold', Arial, Serif;
+	text-transform: uppercase;
 	border-bottom-style: solid;
 	border-color: grey;	
 }
+
 footer {
 	text-align: center;
 	border-top-style: solid;
@@ -41,42 +51,56 @@ footer {
 	margin-top: 20px;
 	text-decoration: none;
 }
+
 footer p{
 	text-align: center;
 }
+
 h1, h2 {
 	font-family: 'Odin-Bold', Arial, Serif;
 	color: red;
 	text-decoration: underline solid black;
 	text-transform: uppercase;
 }
+
 h3 {
 	color: black;
 	text-decoration: underline solid red;
 }
+
 button {
 	border: none;
 	background-color: white;
 }
+
 button:hover{
 	cursor: pointer;
 }
 
+article {
+	display: flex;
+	justify-content: space-between;
+	border: 2px solid black;
+	padding: 15px 15px 15px 15px  ;
+	margin-top: 10px;
+	background-color: white ;
+	word-wrap: break-word;
+}
 
-
+/*Règles de style de formulaire pour avoir un libellé + un input par ligne*/
 form {
   width: 80%;
   margin: 0 auto;
 }
+
 input {
 	margin: 5px 5px 5px 5px;
 }
 
-label,
-input {
-  /* In order to define widths */
+label, input {
   display: inline-block;
 }
+
 input,textarea,select {
 	background-color: grey;
 	color: white;
@@ -93,218 +117,19 @@ box-sizing:content-box;
 }
 label {
   width: 30%;
-  /* Positions the label text beside the input */
   text-align: right;
 }
 
 label+input, label+select, label+textarea{
   width: 30%;
-  /* Large margin-right to force the next element to the new-line
-           and margin-left to create a gutter between the label and input */
   margin: 0 30% 0 4%;
 }
-label,
-textarea,select {
-  /* In order to define widths */
+
+label, textarea, select {
   display: inline-block;
 }
-#accord_confidentialite {
-	margin: 0 0 0 29%;
-}
-#accord_confidentialite+label{
-	width: 40%;
-  margin: 0 0 0 5px;
-  text-align: left;
-}
-#background {
-	width: 70%;
-	margin: auto;
-	background-color: white;
-	border: 2px inset lightgrey;
-	padding: 0px 20px 0px 20px;
-}
-#header_home {
-	justify-content: center;
-}
-.home {
-	text-align: center;
-}
-#logo {
-	height: 150px;
-	object-fit: cover;
-}
-#user {
-	display: flex;
-	justify-content: space-between;
-	align-self: center;
-}
-#user img {
-	height: 30px;
-	object-fit: cover;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-#logout {
-	padding-top: 8px;
-}
-#user a {
-	align-self: center;
-}
-#deconnexion a {
-	align-self: baseline;
-}
 
-#illustration {
-	height: 200px;
-	width: 100%;
-	background-image: url("ressources/illustration_accueil.jpg");
-	background-size: cover;
-	background-position: center;
-	opacity: 90%;
-}
-#cadre_acteurs {
-	padding: 10px 10px 10px 10px;
-	border: 2px solid black;
-	background-color: grey;
-	min-height:300px;
-}
-#cadre_acteurs img {
-	height: 50px;
-	max-width: 100px;
-	object-fit: contain;
-	align-self: center;
-	margin-left: 5px;
-	margin-right: 15px;
-}
-article {
-	display: flex;
-	justify-content: space-between;
-	border: 2px solid black;
-	padding: 15px 15px 15px 15px  ;
-	margin-top: 10px;
-	background-color: white ;
-	word-wrap: break-word;
-}
-.texte_acteur {
- flex-grow: 3;
- margin-right: 10px;
- max-width: 60%;
-}
-.texte_acteur a, #acteur a, #register, #reset, #confidentialite {
-	text-decoration:  underline double red;
-}
-.lien_acteur {
-	width: 90px;
-	align-self: flex-end;
-	border: 2px solid black;
-	border-radius: 10px;
-	padding: 5px;
-	background-color: grey;
-	text-align: center;
-}
-.lien_acteur a {
-	color: white;
-}
-.lien_acteur a:hover {
-	color: red;
-}
-#presentation_acteur img {
-	max-height: 400px;
-	max-width: 60%;
-	object-fit: contain;
-	align-self: center;
-	border-radius: 5px;
-}
-#presentation_acteur {
-	display: flex;
-	flex-direction: column;
-}
-#like img {
-	height: 30px;
-	object-fit: cover;
-	align-self: center;
-}
-#like {
-	display: flex;
-	justify-content: space-around;
-	align-self: center;
-}
-#commentaires {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-#cadre_commentaire {
-	border: 2px solid black;
-	margin-top: 10px;
-	padding: 5px;
-}
-.detail_commentaire {
-	border: 2px solid black;
-	padding: 10px;
-	margin: 10px;
-	background-color: grey;
-	color: white;
-	border-radius: 10px;
-}
-#nouveau_commentaire, #like {
-	border: 2px solid black;
-	border-radius: 10px;
-	padding: 10px;
-	height: 30px;
-}
-#nouveau_commentaire {
- 	align-self: center;
-}
-#commentaires p {
-	margin-left: 10px;
-	font-size: 	20px;
-}
-#like {
-	margin-left: 20px;
-	margin-right: 10px;
-	padding-bottom: 10px;
-}
-#like a, #like p, #like form {
-	margin-right: 10px;
-}
-#like p {
-	align-self: center;
-	font-weight: bold;
-}
-#negatif {
-	color: red;
-}
-#positif {
-	color: green;
-}
-#vote {
-	border: solid grey 2px;
-	border-radius: 10px;
-	padding-bottom: 0;
-	height: 35px;
-}
-#com_et_like {
-	display: 	flex;
-	justify-content: 	space-around	;
-}
-
-#ajout_com textarea {
-	margin-top: 20px;
-	margin-right: auto;
-	width: 70%;
-
-}
-#ajout_com {
-	margin-left: 20px;
-	padding: 0;
-	display: none;
-}
-#ajout_com input {
-	margin: 0;
-}
-
-/*Pour positionner le bouton valider à droite */
+/*Styles pour positionner le bouton valider des formulaires au milieu */
 .valider {
 	margin-left: auto;
 	margin-right: auto;
@@ -314,88 +139,360 @@ article {
 	padding: 10px;
 	font-size: 15px;
 }
+
+/*Styles pour le container div "background" commun à toutes les pages*/
+#background {
+	width: 70%;
+	margin: auto;
+	background-color: white;
+	border: 2px inset lightgrey;
+	padding: 0px 20px 0px 20px;
+}
+
+/*Styles des messages d'erreur en saisie de formulaire*/
 .erreur{
 	color: red;
 	text-align: center;
 	font-weight: bold;
 }
+
+/*Style spécifique d'une partie des liens du site pages accueil, acteur, register, reset et politique_de_confidentialite*/
+.texte_acteur a, #acteur a, #register, #reset, #confidentialite {
+	text-decoration:  underline double red;
+}
+
+/*Styles pour la page politique_de_confidentialite*/
+#accord_confidentialite {
+	margin: 0 0 0 29%;
+}
+
+#accord_confidentialite+label{
+	width: 40%;
+  margin: 0 0 0 5px;
+  text-align: left;
+}
+
+/*Styles pour le header*/
+#header_home {
+	justify-content: center;
+}
+
+.home {
+	text-align: center;
+}
+
+#logo {
+	height: 150px;
+	object-fit: cover;
+}
+
+#user {
+	display: flex;
+	justify-content: space-between;
+	align-self: center;
+}
+
+#user img {
+	height: 30px;
+	object-fit: cover;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#logout {
+	padding-top: 8px;
+}
+
+#user a {
+	align-self: center;
+}
+
+#deconnexion a {
+	align-self: baseline;
+}
+
+/*Styles pour la page accueil*/
+#illustration {
+	height: 200px;
+	width: 100%;
+	background-image: url("ressources/illustration_accueil.jpg");
+	background-size: cover;
+	background-position: center;
+	opacity: 90%;
+}
+
+#cadre_acteurs {
+	padding: 10px 10px 10px 10px;
+	border: 2px solid black;
+	background-color: grey;
+	min-height:300px;
+}
+
+#cadre_acteurs img {
+	height: 50px;
+	max-width: 100px;
+	object-fit: contain;
+	align-self: center;
+	margin-left: 5px;
+}
+
+.texte_acteur {
+ flex-grow: 3;
+ margin-right: auto;
+ margin-left: 15px;
+ max-width: 60%;
+}
+
+.lien_acteur {
+	width: 90px;
+	align-self: flex-end;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 5px;
+	background-color: grey;
+	text-align: center;
+}
+
+.lien_acteur a {
+	color: white;
+}
+
+.lien_acteur a:hover {
+	color: red;
+}
+
+/*Styles pour la page acteur*/
+#presentation_acteur img {
+	max-height: 400px;
+	max-width: 60%;
+	object-fit: contain;
+	align-self: center;
+	border-radius: 5px;
+}
+
+#presentation_acteur {
+	display: flex;
+	flex-direction: column;
+}
+
+#like img {
+	height: 30px;
+	object-fit: cover;
+	align-self: center;
+}
+
+#like {
+	display: flex;
+	justify-content: space-around;
+	align-self: center;
+}
+
+#commentaires {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#cadre_commentaire {
+	border: 2px solid black;
+	margin-top: 10px;
+	padding: 5px;
+}
+
+.detail_commentaire {
+	border: 2px solid black;
+	padding: 10px;
+	margin: 10px;
+	background-color: grey;
+	color: white;
+	border-radius: 10px;
+}
+
+#nouveau_commentaire, #like {
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	height: 30px;
+}
+
+#nouveau_commentaire {
+ 	align-self: center;
+}
+
+#nouveau_commentaire a {
+	display: block;
+	margin-top: 6px;
+}
+
+#commentaires p {
+	margin-left: 10px;
+	font-size: 	20px;
+}
+
+#like {
+	margin-left: 20px;
+	margin-right: 10px;
+	padding-bottom: 10px;
+}
+
+#like a, #like p, #like form {
+	margin-right: 10px;
+}
+
+#like p {
+	align-self: center;
+	font-weight: bold;
+}
+
+#negatif {
+	color: red;
+}
+
+#positif {
+	color: green;
+}
+
+#vote {
+	border: solid grey 2px;
+	border-radius: 10px;
+	padding-bottom: 0;
+	height: 35px;
+}
+
+#com_et_like {
+	display: 	flex;
+	justify-content: 	space-around	;
+}
+
+#ajout_com textarea {
+	margin-top: 20px;
+	margin-right: auto;
+	width: 70%;
+}
+
+#ajout_com {
+	margin-left: 20px;
+	padding: 0;
+	display: none;
+}
+
+#ajout_com input {
+	margin: 0;
+}
+
+
 /*Media queries pour le responsive design avec 2 break points à 960 px (tablette) et 480px (smartphone) */
 @media all and (max-width: 959px)
 {
-	#acteurs>p, #presentation>p{
-		text-align: center;
-	}
-	#background {
-	width: 80%;
-	}
-	#commentaires {
-		flex-direction: column;
-	}
 	label, label+input, label+select, label+textarea {
-  width: 100%;
-  margin: auto;
+	  width: 100%;
+  	margin: auto;
 	}
-	#accord_confidentialite+label{
-	width: 80%;
-	}
-	#accord_confidentialite{
-		margin:  0 0 0 10%;
-	}
+
 	label {
 		text-align: center;
 	}
-}
-@media all and (max-width: 479px)
-{
-	#acteurs>p, #presentation>p,#acteurs>h2, #presentation>h1{
+
+	article {
+		justify-content: space-around;
+	}
+
+	#background {
+		width: 80%;
+	}
+
+	#acteurs>p, #presentation>p{
 		text-align: center;
-		padding-left:5px; ;
-		padding-right:5px; ;
 	}
-	#commentaires>p{
-		margin-right: 10px;
+
+	#cadre_acteurs img {
+		margin-right:5px;
 	}
-	#commentaires,#com_et_like 	{
-		flex-direction: column;
-		align-self: flex-start;
-	}
-	#nouveau_commentaire, #like { 	
-		margin-bottom: 10px;
+
+  .texte_acteur {
+  	flex-grow: 1;
+  }
+
+	.lien_acteur {
 		margin-left: 10px;
 	}
-	#like {
-		align-self: flex-start;
-		padding-left: 0;	
+	
+	#commentaires {
+		flex-direction: column;
 	}
-	#cadre_acteurs img {
-		height: 100px;
-		max-width: 80%;
+
+	#accord_confidentialite{
+		margin:  0 0 0 10%;
 	}
-	.texte_acteur {
-		max-width: 90%;
+
+	#accord_confidentialite+label{
+		width: 80%;
 	}
+}
+
+@media all and (max-width: 479px)
+{
 	article {
 		flex-direction: column;
 	}
+
 	header {
 		flex-direction: column;
 	}
 	header a {
 		align-self: center;
 	}
-	#background {
-	width: 99%;
-	margin: 0;
-	padding: 0;
-	}
+	
 	label,label+input, label+select, label+textarea {
   width: 100%;
   margin: auto;
 	}
+
 	label {
 		text-align: center;
 	}
+
+	#background {
+		width: 99%;
+		margin: 0;
+		padding: 0;
+	}
+
+	#acteurs>p, #presentation>p,#acteurs>h2, #presentation>h1{
+		text-align: center;
+		padding-left:5px; ;
+		padding-right:5px; ;
+	}
+
+	#cadre_acteurs img {
+		height: 100px;
+		max-width: 80%;
+	}
+
+	.texte_acteur {
+		max-width: 90%;
+	}
+
+	#commentaires>p{
+		margin-right: 10px;
+	}
+
+	#commentaires,#com_et_like 	{
+		flex-direction: column;
+		align-self: flex-start;
+	}
+
+	#nouveau_commentaire, #like { 	
+		margin-bottom: 10px;
+		margin-left: 10px;
+	}
+
+	#like {
+		align-self: flex-start;
+		padding-left: 0;	
+	}
+
 	#accord_confidentialite+label{
-	width: 80%;
+		width: 80%;
 	}
 }

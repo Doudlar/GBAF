@@ -158,6 +158,9 @@
 				<li>avec Chrome (version 29), vous pouvez supprimer tous les cookies en accédant au menu «Personnaliser et contrôler» puis en cliquant sur «Paramètres», « Montrer les paramètres avancés » et «Supprimer les données de navigation» puis «Supprimer les cookies et les données des modules d’autres sites» avant de cliquer sur «Supprimer les données de navigation».</li>
 			</ul>
 			<p>Supprimer les cookies aura un impact négatif sur l’utilisation de nombreux sites web.</p>
+		<?php
+		include("footer.php");?>
+		
 		</div>
 	</body>
 </html>
