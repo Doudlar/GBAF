@@ -36,11 +36,11 @@ catch (Exception $e)
 	if (isset($_POST["username"]) and isset($_POST["password"])) {
 		$username=$_POST["username"];
 		$mdp=$_POST["password"];
-		$req = $bdd->prepare('SELECT COUNT(username) as nbuser, password,id_user, username FROM account WHERE username=?');
+		$req = $bdd->prepare('SELECT id_user, username, password FROM account WHERE username=?');
 		$req->execute(array($username));
 		$donnees=$req->fetch();
 		/*Contrôle de l'existence de l'utilisateur, sinon message d'erreur*/
-		if ($donnees["nbuser"]==0)
+		if ($donnees["username"]==false)
 		{
 			formulaire();
 			echo "<p class=erreur>Compte inconnu</p>";

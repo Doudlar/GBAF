@@ -59,15 +59,26 @@
 					<div id='cadre_commentaire'>
 					<div id='commentaires'>
 						<?php
-							//Vérification de l'initialisation de la variable commentaire pour insertion du commentaire dans la base sinon aucune action
+							//Vérification de l'initialisation de la variable commentaire pour insertion du commentaire dans la base sinon aucune action + vérification de l'unicité du commentaire sinon affichage d'un message d'erreur
+							$commentaire=0;
 							if (isset($_POST['commentaire'])) {
-							 	
-							 	$req = $bdd->prepare('INSERT INTO post (id_user,id_acteur,date_add,post) VALUES (:user,:acteur,CURRENT_TIMESTAMP,:post)');
+							 	$req = $bdd->prepare('SELECT id_user,id_acteur,post FROM post WHERE id_user=:user and id_acteur=:acteur');
 								$req->execute(array(
 								'user' => $_SESSION['id_user'],
-								'post' => $_POST['commentaire'],
 								'acteur' => $_GET['id_acteur']));
-								$req->closeCursor();
+								$donnees=$req->fetch();
+								if ($donnees['id_user']==false) {			 	
+								 	$req->closeCursor();
+								 	$req = $bdd->prepare('INSERT INTO post (id_user,id_acteur,date_add,post) VALUES (:user,:acteur,CURRENT_TIMESTAMP,:post)');
+									$req->execute(array(
+									'user' => $_SESSION['id_user'],
+									'post' => $_POST['commentaire'],
+									'acteur' => $_GET['id_acteur']));
+									$req->closeCursor();
+								}
+								else {
+									$commentaire=1;
+								}
 							}
 							//Récupération du nombre de commentaires en BDD et affichage sur la page
 							$req = $bdd->prepare('SELECT count(id_acteur) as nbcommentaires FROM post WHERE id_acteur=?');
@@ -171,6 +182,9 @@
 							<textarea name='commentaire' id='commentaire' rows='3' cols='100' id='texte_com'>Saisissez votre commentaire ici</textarea>
 							<p><input type='submit' value='Envoyer' /></p>
 							</form>";
+							if ($commentaire==1) {
+								echo "<p class=erreur>Vous ne pouvez pas écrire plus d'un commentaire par acteur</p>";
+							}
 
 							$req->closeCursor();
 							
